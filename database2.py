@@ -53,20 +53,6 @@ try:
                     #continue
         #file.write("\n\nQuestion d: \n" + str(count_indep) )
 
-        #Thando: This code instead prints out the names of the countries with independence years between 1960-1980 into File2 instead of just counting them.
-        indep_countries = []  
-        for row in rows:
-            if 'IndepYear' in row and 'CountryName' in row:
-                try:
-                    Year = int(row['IndepYear'])
-                    if 1960 <= Year <= 1980:
-                        #Add country name to the list
-                        indep_countries.append(row['CountryName'])
-                except ValueError:
-                    #Skip invalid entries like 'NULL' or non-numeric values
-                    continue
-        file.write("\n\nQuestion d: \n" + str(indep_countries))
-
         # e) Countries with independence year between 1830-1850
         countries_indep = []
         for row in rows:
@@ -81,30 +67,41 @@ try:
                     continue
         file.write("\n\nQuestion e: \n" + str(countries_indep))
 
-        # f) Top 5 African countries by life expectancy
-        LifeExpect_max = {} #Use dictionary to hold maximum life expectancy for each country since there are duplicated countries in the dataset.
+        # f) Jessie: Top 5 African countries by life expectancy
+        African = set()
         for row in rows:
-            #Check if the row has the keys we need and if it's in Africa
-            if 'LifeExpectancy' in row and 'CountryName' in row and 'Continent' in row:
-                if row['Continent'] == 'Africa':
-                    country = row['CountryName']
-                    try:
-                        #Convert life expectancy to float to avoid losing decimal precision
-                        life_expect = float(row['LifeExpectancy'])
-                       #If the country is not in the dictionary, add it. If it is, update to the max life expectancy
-                        if country not in LifeExpect_max or life_expect > LifeExpect_max[country]:
-                            LifeExpect_max[country] = life_expect
-                    except (ValueError, TypeError):
-                        #Skip if conversion fails
-                        continue
-                #Convert to list and sort life_expectancy in descending order and take the top 5
-                LifeExpect_list = [(country, life_expect) for country, life_expect in LifeExpect_max.items()]
-                top5_africa = sorted(LifeExpect_list, key=lambda x: x[1], reverse=True)[:5]
-                file.write("\n\nQuestion f: \n" + str(top5_africa))
+                Cont = row['Continent']
+                if Cont == "Africa":
+                    life = float(row['LifeExpectancy'])
+                    Country = row['CountryName']
+                    African.add((Country,life))
+        Afri5 = sorted(African,key=lambda z: z[1], reverse=True)[:5]
+        file.write("\n\nQuestion f: \n " + str(Afri5))
 
-
-
-       
+        # g) Thando: Top 5 languages by country count
+        lang_count = {}
+        for row in rows:
+            if 'Language' in row:
+                try:
+                    langs = [lang.strip() for lang in row['Language'].split(',')]
+                    for lang in langs:
+                        if lang: #Ensure the language string is not empty
+                            lang_count[lang] = lang_count.get(lang, 0) + 1
+                except AttributeError:
+                    #Handle cases where 'Language' is unexpected (e.g., a non-string type)
+                    continue
+        #Sort languages by count in descending order and select top 5
+        sorted_langs = sorted(lang_count.items(), key=lambda x: x[1], reverse=True)
+        top5_langs = [lang for lang, count in sorted_langs[:5]]
+        file.write("\n\nQuestion g: \n" + str(top5_langs))
+            
+        # Jessie: h) Country names that end with 'a' without repetition
+        Base = set()
+        for row in rows:
+            country = row['CountryName'] # calls to dictionary rows to find the header CountryName
+            if country.endswith("a"):  #searchs through the dictionary for countrys that end with a 
+                Base.add(country)
+        file.write("\n\nQuestion h: \n" + str(Base))
 
        
         
