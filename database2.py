@@ -82,15 +82,30 @@ try:
         file.write("\n\nQuestion e: \n" + str(countries_indep))
 
         # f) Top 5 African countries by life expectancy
-        #First, filter for Africa
-        #africa_records = [record for record in data_rows if record['Continent'] == 'Africa' and record['LifeExpect'] is not None]
-        #Sort by LifeExpect Descending
-        #sorted_africa = sorted(africa_records, key=lambda x: x['LifeExpect'], reverse=True)
-        #top5_africa = [record['Country'] for record in sorted_africa[:5]]
-        #outfile.write("Question f:\n")
-        #for country in top5_africa:
-            #outfile.write(country + "\n")
-        #outfile.write("\n")
+        LifeExpect_max = {} #Use dictionary to hold maximum life expectancy for each country since there are duplicated countries in the dataset.
+        for row in rows:
+            #Check if the row has the keys we need and if it's in Africa
+            if 'LifeExpectancy' in row and 'CountryName' in row and 'Continent' in row:
+                if row['Continent'] == 'Africa':
+                    country = row['CountryName']
+                    try:
+                        #Convert life expectancy to float to avoid losing decimal precision
+                        life_expect = float(row['LifeExpectancy'])
+                       #If the country is not in the dictionary, add it. If it is, update to the max life expectancy
+                        if country not in LifeExpect_max or life_expect > LifeExpect_max[country]:
+                            LifeExpect_max[country] = life_expect
+                    except (ValueError, TypeError):
+                        #Skip if conversion fails
+                        continue
+                #Convert to list and sort life_expectancy in descending order and take the top 5
+                LifeExpect_list = [(country, life_expect) for country, life_expect in LifeExpect_max.items()]
+                top5_africa = sorted(LifeExpect_list, key=lambda x: x[1], reverse=True)[:5]
+                file.write("\n\nQuestion f: \n" + str(top5_africa))
+
+
+
+       
+
        
         
 except FileNotFoundError:
