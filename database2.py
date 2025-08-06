@@ -63,13 +63,17 @@ try:
         # D) How many countries gained independence between the years 1960 and 1980 (inclusive)?
         # =======================================================================================
         #Thando: This code counts the number of countries that have independence year between 1960 and 1980, then shows the total of thos countries in File2
+        #Karabo: Added a set to store the countries with independence in the relevant years and removed repetitions.
         def question_d(rows):
+            uniqueSet = set()
             count_indep = 0
             for row in rows:
                 if 'IndepYear' in row and 'CountryName' in row:
                     try:
                         Year = int(row['IndepYear'])
                         if 1960 <= Year <= 1980:
+                            if row['CountryName'] not in uniqueSet: #To avoid counting the same country multiple times
+                                uniqueSet.add(row['CountryName']) #Add country name to the set
                             count_indep += 1
                     except ValueError:
                         #Skip invalid entries like 'NULL' or non-numeric values
@@ -162,3 +166,4 @@ except FileExistsError:
 #edited all code to their respective functions - Karabo
 #headings for consistency - Karabo
     
+
