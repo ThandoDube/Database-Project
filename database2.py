@@ -31,7 +31,7 @@ try:
         # B)List the five cities that have the HIGHEST CITY POPULATION.
         # ====================================================================      
         def question_b(rows):
-            citypop = set() #empty list to hold the population numbers
+            citypop = set() #empty set to hold the population numbers
             for row in rows:
                 if 'CityPopulation' in row and 'CityName' in row: #Calls the header directly in dictionary
                     cityN = row['CityName']
@@ -105,7 +105,7 @@ try:
         # ====================================================================================
         # f) List the five African countries that have the highest life expectancy.
         # ====================================================================================
-        #Jessie
+        #Jessie: Added comments to this section
         def question_f(rows):
             African = set() #An empty set to contain the filtered countries
             for row in rows:
@@ -166,5 +166,6 @@ except FileExistsError:
 #edited all code to their respective functions - Karabo
 #headings for consistency - Karabo
     
+
 
 
