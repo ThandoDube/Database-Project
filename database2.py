@@ -33,7 +33,7 @@ try:
         def question_b(rows):
             citypop = set() #empty list to hold the population numbers
             for row in rows:
-                if 'CityPopulation' in row and 'CityName' in row : #Calls the header directly in dictionary
+                if 'CityPopulation' in row and 'CityName' in row: #Calls the header directly in dictionary
                     cityN = row['CityName']
                     pop = int(row['CityPopulation'])#Converts the string in the dictionary into integers
                     citypop.add((cityN,pop))
@@ -107,11 +107,11 @@ try:
         # ====================================================================================
         #Jessie
         def question_f(rows):
-            African = set()
+            African = set() #An empty set to contain the filtered countries
             for row in rows:
-                    Cont = row['Continent']
-                    if Cont == "Africa":
-                        life = float(row['LifeExpectancy'])
+                    Cont = row['Continent']   #calls to the dictionary for header Continent
+                    if Cont == "Africa":   #creates a condition to check if a continent is equal to africa
+                        life = float(row['LifeExpectancy']) #converts the string in the dictionary rows into float
                         Country = row['CountryName']
                         African.add((Country,life))
             Afri5 = sorted(African,key=lambda z: z[1], reverse=True)[:5]
@@ -166,4 +166,5 @@ except FileExistsError:
 #edited all code to their respective functions - Karabo
 #headings for consistency - Karabo
     
+
 
