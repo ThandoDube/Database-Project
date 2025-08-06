@@ -47,13 +47,17 @@ try:
         # ==========================================================
         #C) List the five countries that have the LARGEST LANDMASS.
         # ==========================================================
+        #Jessie: I added the try and except method to actually get the countries and the landmass nunber , so readded the int value
         def question_c(rows):
             landMass = set() #empty list to hold the population numbers
             for row in rows:
                 if 'LandMass' in row and 'CountryName' in row : #Calls the header directly in dictionary, changed CityName to CountryName so we can search for countries instead of cities
-                    country = row['CountryName']
-                    Land = row['LandMass']#Converts the string in the dictionary into integers. Thando: I removed the converttointeger command because it produced an error; this may be likely to the landmass column in the csv file using region names and not codes.
-                    landMass.add((country,Land))
+                    try:
+                        country = row['CountryName']
+                        Land = int(row['LandMass'])#Converts the string in the dictionary into integers. Thando: I removed the converttointeger command because it produced an error; this may be likely to the landmass column in the csv file using region names and not codes.
+                        landMass.add((country,Land))
+                    except ValueError:
+                        continue
             land5 = sorted(landMass,key=lambda x: x[1], reverse=True)[:5]
             file.write("\n\nQuestion c: \n" + str(land5) )
             return land5

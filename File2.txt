@@ -5,13 +5,13 @@ Question b:
  [('Mumbai (Bombay)', 10500000), ('Seoul', 9981619), ('São Paulo', 9968485), ('Shanghai', 9696300), ('Jakarta', 9604900)]
 
 Question c: 
-[('"Micronesia', 'Micronesia'), ('"Congo', 'Central Africa'), ('"Virgin Islands', 'Caribbean'), ('Canada', '9970610'), ('South Korea', '99434')]
+[('Russian Federation', 17075400), ('Canada', 9970610), ('China', 9572900), ('United States', 9363520), ('Brazil', 8547403)]
 
 Question d: 
 1731
 
 Question e: 
-{'Dominican Republic', 'Honduras', 'Greece', 'Nicaragua', 'El Salvador', 'Liberia', 'Belgium'}
+{'Belgium', 'El Salvador', 'Nicaragua', 'Greece', 'Liberia', 'Honduras', 'Dominican Republic'}
 
 Question f: 
  [('Saint Helena', 76.8), ('Libyan Arab Jamahiriya', 75.5), ('Tunisia', 73.7), ('Réunion', 72.7), ('Mauritius', 71.0)]
@@ -20,4 +20,4 @@ Question g:
 ['Chinese', 'Spanish', 'German', 'Italian', 'Japanese']
 
 Question h: 
-{'Romania', 'Nicaragua', 'Equatorial Guinea', 'Macedonia', 'Anguilla', 'Syria', 'Latvia', 'Bulgaria', 'Algeria', 'Albania', 'Saint Helena', 'Nigeria', 'Namibia', 'Saudi Arabia', 'Slovakia', 'India', 'Slovenia', 'Angola', 'China', 'Eritrea', 'Georgia', 'Tanzania', 'Jamaica', 'Saint Lucia', 'Venezuela', 'Yugoslavia', 'South Korea', 'Indonesia', 'Armenia', 'Estonia', 'Rwanda', 'Andorra', 'Bolivia', 'Guyana', 'Moldova', 'Wallis and Futuna', 'Cuba', 'Kenya', 'Lithuania', 'North Korea', 'Costa Rica', 'Panama', 'Austria', 'Dominica', 'New Caledonia', 'Malaysia', 'Uganda', 'Guinea', 'Mongolia', 'Argentina', 'Cambodia', 'Gambia', 'Mauritania', 'Western Sahara', 'Papua New Guinea', 'Bermuda', 'Ethiopia', '"Micronesia', 'Guatemala', 'Canada', 'Libyan Arab Jamahiriya', 'Somalia', 'Sri Lanka', 'Malta', 'Samoa', 'Zambia', 'French Guiana', 'French Polynesia', 'South Africa', 'Bosnia and Herzegovina', 'Colombia', 'Grenada', 'American Samoa', 'Aruba', 'Tunisia', 'Antigua and Barbuda', 'Australia', 'Botswana', 'Ghana', 'Liberia', 'Tonga', 'Croatia'}
+{'North Korea', 'Liberia', 'Guyana', 'Argentina', 'French Polynesia', 'Kenya', 'Lithuania', 'Papua New Guinea', 'Yugoslavia', 'Ghana', 'Anguilla', 'Moldova', 'French Guiana', 'Colombia', 'Bulgaria', 'Eritrea', '"Micronesia', 'Tonga', 'Latvia', 'Uganda', 'Bolivia', 'Venezuela', 'Western Sahara', 'Andorra', 'Albania', 'Costa Rica', 'China', 'Cambodia', 'Algeria', 'Panama', 'Tanzania', 'Samoa', 'Namibia', 'Tunisia', 'Dominica', 'Guinea', 'Indonesia', 'Equatorial Guinea', 'India', 'Guatemala', 'Austria', 'Armenia', 'Saint Helena', 'Cuba', 'Bosnia and Herzegovina', 'Slovenia', 'Mongolia', 'Rwanda', 'Canada', 'Ethiopia', 'Saint Lucia', 'South Africa', 'Romania', 'New Caledonia', 'Macedonia', 'Saudi Arabia', 'Slovakia', 'Syria', 'Wallis and Futuna', 'Angola', 'Mauritania', 'South Korea', 'Zambia', 'American Samoa', 'Aruba', 'Botswana', 'Grenada', 'Nicaragua', 'Jamaica', 'Somalia', 'Sri Lanka', 'Georgia', 'Malaysia', 'Gambia', 'Estonia', 'Croatia', 'Bermuda', 'Australia', 'Antigua and Barbuda', 'Libyan Arab Jamahiriya', 'Nigeria', 'Malta'}
