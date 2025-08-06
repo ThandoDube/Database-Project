@@ -77,8 +77,8 @@ try:
                         Year = int(row['IndepYear'])
                         if 1960 <= Year <= 1980:
                             if row['CountryName'] not in uniqueSet: #To avoid counting the same country multiple times
-                                uniqueSet.add(row['CountryName']) #Add country name to the set
-                            count_indep += 1
+                                uniqueSet.add(row['CountryName']) # Add country name to the set
+                                count_indep += 1
                     except ValueError:
                         #Skip invalid entries like 'NULL' or non-numeric values
                         continue
@@ -97,7 +97,7 @@ try:
                     try:
                         Years = int(row['IndepYear'])
                         if 1830 <= Years <= 1850:
-                            #Add county name to the list
+                            # Add county name to the list
                             countries_indep.add(row['CountryName'])
                     except ValueError:
                         #Skip invalid entries like 'NULL' or non-numeric values
